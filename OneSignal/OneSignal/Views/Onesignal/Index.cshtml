@@ -1,0 +1,47 @@
+﻿@model OneSignal.Models.AppsIndexViewModel
+@{
+    ViewBag.Title = "All Applications";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.ActionLink("Create App", "CreateApp", "OneSignal")
+<br />
+<br />
+<br />
+<h4></h4>
+<hr />
+
+@{
+    if (Model?.apps != null)
+    {
+        foreach (var app in Model.apps)
+        {
+            <div class="row">
+
+                <div class="col-md-3">
+                    @Html.DisplayFor(modelItem => app.name)
+                </div>
+
+                <div class="col-md-3">
+                    @Html.ActionLink("Edit", "EditApp", new { id = app.id })
+                </div>
+
+                <div class="col-md-6">
+                </div>
+            </div>
+          
+
+            <hr />
+        }
+    }
+}
+<br />
+<br />
+<br />
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
